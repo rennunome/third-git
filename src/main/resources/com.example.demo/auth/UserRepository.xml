@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.auth.UserRepository">
+
+	<!--今回利用するステートメントの定義 -->
+	<select id="identifyUser" parameterType="java.lang.String"
+		resultMap="userDetails">
+		select
+		id, password
+		from users
+		where id = #{id}
+		and deleteflag = 0
+	</select>
+
+	<!--UserクラスのプロパティとDBのデータをマップする -->
+	<resultMap type="com.example.demo.auth.User" id="userDetails">
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+	</resultMap>
+
+</mapper>
