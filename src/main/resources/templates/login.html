@@ -8,12 +8,11 @@
     <div class="container">
         <h1>ログイン</h1>
         <p th:if="${loginError}" class="error">Wrong user or password</p>
-        	<a href="login.html" th:href="@{/login}">リンク</a>
         	<form th:action="@{/login}" method="post">
             <table class="table table-bordered col-md-6">
             <tr class="form-group">
                 <th class="align-middle">ID</th>
-                <td><input type="text" class="form-controll" name="ID"></td>
+                <td><input type="text" class="form-controll" name="name"></td>
             </tr>
             <tr class="form-group">
                 <th class="align-middle">パスワード</th>

@@ -12,9 +12,9 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 	private UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 		// TODO 自動生成されたメソッド・スタブ
-		return userRepository.identifyUser(id);
+		return userRepository.identifyUser(name);
 	}
 
 }

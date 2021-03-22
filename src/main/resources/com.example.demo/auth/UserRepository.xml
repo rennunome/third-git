@@ -4,7 +4,7 @@
 
 	<!--今回利用するステートメントの定義 -->
 	<select id="identifyUser" parameterType="java.lang.String"
-		resultMap="userDetails">
+		resultMap="identifyUser">
 		select
 		id, password
 		from users
@@ -13,7 +13,7 @@
 	</select>
 
 	<!--UserクラスのプロパティとDBのデータをマップする -->
-	<resultMap type="com.example.demo.auth.User" id="userDetails">
+	<resultMap type="com.example.demo.auth.User" id="identifyUser">
 		<result property="id" column="id" />
 		<result property="password" column="password" />
 	</resultMap>

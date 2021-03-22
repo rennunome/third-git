@@ -21,14 +21,15 @@ public class WebSecurityConf extends WebSecurityConfigurerAdapter{
 	protected void configure (AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 	}
-
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			//ログインしないとこのWebアプリケーション配下のりそーずには一切アクセスができないということ
+			.antMatchers("/css/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			//ブラウザ上でログイン情報とパスワードを求めるもの
-			.formLogin();
+			.formLogin().loginPage("/login").usernameParameter("name").passwordParameter("password").permitAll();
 	}
 	//パスワードをハッシュ化するためのメソッド
 	@Bean
