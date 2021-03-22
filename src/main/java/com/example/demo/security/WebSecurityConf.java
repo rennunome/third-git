@@ -29,7 +29,7 @@ public class WebSecurityConf extends WebSecurityConfigurerAdapter{
 			.anyRequest().authenticated()
 			.and()
 			//ブラウザ上でログイン情報とパスワードを求めるもの
-			.formLogin().loginPage("/login").usernameParameter("name").passwordParameter("password").permitAll();
+			.formLogin().loginPage("/login").defaultSuccessUrl("/top").failureUrl("/error").usernameParameter("id").passwordParameter("password").permitAll();
 	}
 	//パスワードをハッシュ化するためのメソッド
 	@Bean

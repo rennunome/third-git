@@ -5,21 +5,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-
 public class LoginController {
 
 	@GetMapping("/login")
-	public String index() {
+	public String login() {
+		System.out.println("/getlogin");
 		return "login";
 	}
 
-	@PostMapping("/login")
-		public String login() {
-		return "login";
+	@PostMapping("/top")
+	public String top() {
+		System.out.println("/posttop");
+		return "top";
 	}
 
 	@GetMapping("/top")
-		public String top() {
-			return "top";
-		}
+	public String root() {
+		System.out.println("/gettop");
+		return "top";
 	}
+
+}
