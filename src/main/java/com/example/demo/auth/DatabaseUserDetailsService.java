@@ -13,8 +13,11 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-		// TODO 自動生成されたメソッド・スタブ
-		return userRepository.identifyUser(name);
+		User user = userRepository.identifyUser(name);
+		if (user == null) {
+			throw new UsernameNotFoundException(name + "is not found");
+		} else {
+			return user;
+		}
 	}
-
 }
