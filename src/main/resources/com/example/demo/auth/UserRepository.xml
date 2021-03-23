@@ -5,17 +5,14 @@
 	<!--今回利用するステートメントの定義 -->
 	<select id="identifyUser" parameterType="java.lang.String"
 		resultMap="identifyUser">
-		select
-		id, password
-		from users
-		where id = #{id}
-		and deleteflag = 0
+		select * from users where id = #{id} and deleteflag = 0
 	</select>
 
 	<!--UserクラスのプロパティとDBのデータをマップする -->
 	<resultMap type="com.example.demo.auth.User" id="identifyUser">
 		<result property="id" column="id" />
 		<result property="password" column="password" />
+		<result property="deleteflag" column="deleteflag" />
 	</resultMap>
 
 </mapper>

@@ -20,6 +20,8 @@ public class User implements UserDetails {
 
 	private byte admin_flag;
 
+	private String password;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO 自動生成されたメソッド・スタブ
@@ -29,7 +31,10 @@ public class User implements UserDetails {
 	@Override
 	public String getPassword() {
 		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
